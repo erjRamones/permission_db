@@ -30,9 +30,11 @@ class DatabaseSeeder extends Seeder
         }
 
         User::create([
-            'name' => 'Joseph Vincent',
-            'email' => 'joseph@vincent.com',
-            'password' => Hash::make('password')
+            'name' => 'Sasas',
+            'email' => 'Sasas@email.com',
+            'password' => Hash::make('password'),
+            'role' => $faker->randomElement(['clerk', 'employee']),
+            'gender' => $faker->randomElement(['Male','Female']),
         ]);
     }
 }

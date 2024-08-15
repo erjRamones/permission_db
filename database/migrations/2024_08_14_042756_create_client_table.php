@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('client', function (Blueprint $table) {
             $table->id()->primary();
+            $table->string('FirstName');
+            $table->string('LastName');
+            $table->string('MiddleName');
             $table->unique(['FirstName', 'LastName', 'MiddleName']);
             $table->string('BirthPlace');
             $table->date('Date_of_Birth');
