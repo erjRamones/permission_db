@@ -2,8 +2,11 @@
 
 namespace Database\Seeders;
 
+use App\Models\Employee;
 use App\Models\Student;
 use App\Models\User;
+use App\Models\User_Account;
+use App\Models\User_Account_Status;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Faker\Factory as Faker;
@@ -18,23 +21,28 @@ class DatabaseSeeder extends Seeder
     {
         $faker = Faker::create();
 
-        for ($i = 0; $i < 100; $i++) {
-            Student::create([
-                'firstname' => $faker->firstName(),
-                'lastname' => $faker->lastName(),
-                'course' => $faker->word(),
-                'birthday' => $faker->date(),
-                'age' => $faker->randomDigit(),
-                'allowance' => 100.50
-            ]);
-        }
+        Employee::create([
+            'sss_no' => 1,
+            'phic_no' => 1,
+            'tin_no' => 1,
+            'datetime_hired' => now(),
+            'datetime_resigned' => now(),
+        ]);
 
-        User::create([
-            'name' => 'Sasas',
+        User_Account_Status::create([
+            'description' => 'Active',
+        ]);
+
+
+        User_Account::create([
+            'last_name' => 'Sasas',
+            'first_name' => 'Sasas',
+            'middle_name' => 'Sasas',
             'email' => 'Sasas@email.com',
             'password' => Hash::make('password'),
-            'role' => $faker->randomElement(['clerk', 'employee']),
-            'gender' => $faker->randomElement(['Male','Female']),
+            'datetime_registered' => now(),
+            'employee_id' => 1,
+            'status_id' => 1,
         ]);
     }
 }

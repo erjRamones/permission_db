@@ -1,13 +1,13 @@
 <?php
 
-// app/Models/PaymentSchedule.php
+// app/Models/Payment.php
 
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Payment_Schedule extends Model
+class Payment extends Model
 {
     use HasFactory;
 
@@ -24,19 +24,16 @@ class Payment_Schedule extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'datetime_created',
         'customer_id',
-        'loan_released_id',
-        'datetime_due',
-        'amount_due',
-        'amount_interest',
+        'prepared_at',
+        'document_status_code',
+        'prepared_by_id',
         'amount_paid',
-        'payment_status_code',
-        'remarks',
+        'notes',
     ];
 
     /**
-     * Get the customer that owns the payment schedule.
+     * Get the customer that owns the payment.
      */
     public function customer()
     {
@@ -44,10 +41,10 @@ class Payment_Schedule extends Model
     }
 
     /**
-     * Get the loan release that owns the payment schedule.
+     * Get the user that prepared the payment.
      */
-    public function loanRelease()
+    public function preparedBy()
     {
-        return $this->belongsTo(Loan_Release::class, 'loan_released_id', 'id');
+        return $this->belongsTo(User_Account::class, 'prepared_by_id', 'id');
     }
 }
