@@ -17,6 +17,7 @@ class Loan_Release extends Model
      * @var string
      */
     protected $primaryKey = 'id';
+    protected $table = 'loan_release';
 
     /**
      * The attributes that are mass assignable.

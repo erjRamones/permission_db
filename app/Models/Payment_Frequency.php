@@ -11,6 +11,9 @@ class Payment_Frequency extends Model
 {
     use HasFactory;
 
+    protected $primarykey = 'id';
+    protected $table = 'payment_frequency';
+
     /**
      * The attributes that are mass assignable.
      *

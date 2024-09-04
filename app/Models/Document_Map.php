@@ -8,7 +8,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Document_Map extends Model
+class Document_Map extends DBLibrary
 {
     use HasFactory;
 
@@ -17,7 +17,8 @@ class Document_Map extends Model
      *
      * @var string
      */
-    protected $primaryKey = 'document_map_code';
+    protected $primaryKey = 'id';
+    protected $table = 'document_map';
 
     /**
      * The attributes that are mass assignable.

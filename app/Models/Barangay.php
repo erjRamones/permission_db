@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Barangay extends Model
+class Barangay extends DBLibrary
 {
     use HasFactory;
 
@@ -14,7 +14,9 @@ class Barangay extends Model
      *
      * @var string
      */
-    protected $primaryKey = 'id';
+    protected $primarykey = 'id';
+
+    protected $table = 'barangay';
 
     /**
      * The attributes that are mass assignable.

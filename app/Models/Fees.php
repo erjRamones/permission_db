@@ -11,6 +11,8 @@ class Fees extends Model
 {
     use HasFactory;
 
+    protected $primarykey = 'id';
+    protected $table = 'fees';
     /**
      * The attributes that are mass assignable.
      *

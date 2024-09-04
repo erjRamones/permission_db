@@ -17,6 +17,7 @@ class Payment_Line extends Model
      * @var string
      */
     protected $primaryKey = 'id';
+    protected $table = 'payment_line';
 
     /**
      * The attributes that are mass assignable.

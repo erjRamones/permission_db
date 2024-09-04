@@ -7,7 +7,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Gender_Map extends Model
+class Gender_Map extends DBLibrary
 {
     use HasFactory;
 
@@ -16,7 +16,8 @@ class Gender_Map extends Model
      *
      * @var string
      */
-    protected $primaryKey = 'id';
+    protected $primarykey = 'id';
+    protected $table = 'gender_map';
 
     /**
      * The attributes that are mass assignable.

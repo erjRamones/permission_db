@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Branch extends Model
+class Branch extends DBLibrary
 {
     use HasFactory;
 
@@ -14,13 +14,15 @@ class Branch extends Model
      *
      * @var string
      */
-    protected $primaryKey = 'id';
+    protected $primarykey = 'id';
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
+
+    protected $table = 'branch';
     protected $fillable = [
         'description',
     ];

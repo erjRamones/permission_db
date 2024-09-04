@@ -14,6 +14,8 @@ class User_Account extends Authenticatable
 {
     use HasFactory, Notifiable, HasApiTokens;
 
+    protected $primarykey = 'id';
+
     /**
      * The attributes that are mass assignable.
      *

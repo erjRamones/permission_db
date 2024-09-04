@@ -7,7 +7,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Document_Permission_Map extends Model
+class Document_Permission_Map extends DBLibrary
 {
     use HasFactory;
 
@@ -16,8 +16,9 @@ class Document_Permission_Map extends Model
      *
      * @var array<int, string>
      */
+    protected $primarykey = 'id';
+    protected $table = 'document_permission_map';
     protected $fillable = [
-        'document_permission_id',
         'description',
     ];
 }

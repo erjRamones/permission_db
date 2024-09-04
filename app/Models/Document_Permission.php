@@ -17,6 +17,8 @@ class Document_Permission extends Model
      *
      * @var array<int, string>
      */
+    protected $primarykey = 'id';
+    protected $table = 'document_permission';
     protected $fillable = [
         'user_id',
         'document_map_code',
@@ -29,7 +31,7 @@ class Document_Permission extends Model
      */
     public function user(): BelongsTo
     {
-        return $this->belongsTo(User_Account::class, 'user_id');
+        return $this->belongsTo(User_Account::class, 'user_id', 'id');
     }
 
     /**
@@ -37,7 +39,7 @@ class Document_Permission extends Model
      */
     public function documentMap(): BelongsTo
     {
-        return $this->belongsTo(Document_Map::class, 'document_map_code');
+        return $this->belongsTo(Document_Map::class, 'document_map_code', 'id');
     }
 
     /**
@@ -45,6 +47,6 @@ class Document_Permission extends Model
      */
     public function documentPermissionMap(): BelongsTo
     {
-        return $this->belongsTo(Document_Permission_Map::class, 'document_permission');
+        return $this->belongsTo(Document_Permission_Map::class, 'document_permission' , 'id');
     }
 }

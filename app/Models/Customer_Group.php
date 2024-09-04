@@ -7,7 +7,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Customer_Group extends Model
+class Customer_Group extends DBLibrary
 {
     use HasFactory;
 
@@ -16,7 +16,9 @@ class Customer_Group extends Model
      *
      * @var string
      */
-    protected $primaryKey = 'group_id';
+    protected $primaryKey = 'id';
+
+    protected $table = 'customer_group';
 
     /**
      * The attributes that are mass assignable.
@@ -32,6 +34,6 @@ class Customer_Group extends Model
      */
     public function customers()
     {
-        return $this->hasMany(Customer::class, 'group_id', 'group_id');
+        return $this->hasMany(Customer::class, 'customer_id', 'id');
     }
 }

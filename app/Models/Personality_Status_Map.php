@@ -7,7 +7,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Personality_Status_Map extends Model
+class Personality_Status_Map extends DBLibrary
 {
     use HasFactory;
 
@@ -17,6 +17,7 @@ class Personality_Status_Map extends Model
      * @var string
      */
     protected $primaryKey = 'id';
+    protected $table = 'personality_status_map';
 
     /**
      * The attributes that are mass assignable.

@@ -11,6 +11,9 @@ class Loan_Application_Fees extends Model
 {
     use HasFactory;
 
+    protected $primarykey = 'id';
+    protected $table = 'loan_application_fees';
+
     /**
      * The attributes that are mass assignable.
      *
@@ -28,7 +31,7 @@ class Loan_Application_Fees extends Model
      */
     public function loanApplication()
     {
-        return $this->belongsTo(Loan_Application::class);
+        return $this->belongsTo(Loan_Application::class, 'loan_application_id', 'id');
     }
 
     /**
@@ -36,6 +39,6 @@ class Loan_Application_Fees extends Model
      */
     public function fee()
     {
-        return $this->belongsTo(Fees::class);
+        return $this->belongsTo(Fees::class , 'fees_id', 'id');
     }
 }

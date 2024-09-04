@@ -7,7 +7,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Spouse extends Model
+class Spouse extends DBLibrary
 {
     use HasFactory;
 
@@ -16,7 +16,8 @@ class Spouse extends Model
      *
      * @var string
      */
-    protected $primaryKey = 'id';
+    protected $primarykey = 'id';
+    protected $table = 'spouse';
 
     /**
      * The attributes that are mass assignable.

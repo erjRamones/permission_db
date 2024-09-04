@@ -12,6 +12,9 @@ class Personality extends Model
 {
     use HasFactory;
 
+    protected $primarykey = 'id';
+    protected $table = 'personality';
+
     /**
      * The attributes that are mass assignable.
      *
@@ -48,7 +51,7 @@ class Personality extends Model
      */
     public function branch(): BelongsTo
     {
-        return $this->belongsTo(Branch::class);
+        return $this->belongsTo(Branch::class, 'branch_id', 'id');
     }
 
     /**
@@ -56,7 +59,7 @@ class Personality extends Model
      */
     public function barangay(): BelongsTo
     {
-        return $this->belongsTo(Barangay::class);
+        return $this->belongsTo(Barangay::class, 'barangay_id', 'id');
     }
 
     /**
@@ -64,7 +67,7 @@ class Personality extends Model
      */
     public function city(): BelongsTo
     {
-        return $this->belongsTo(City::class);
+        return $this->belongsTo(City::class, 'city_id', 'id');
     }
 
     /**
@@ -72,7 +75,7 @@ class Personality extends Model
      */
     public function country(): BelongsTo
     {
-        return $this->belongsTo(Country::class);
+        return $this->belongsTo(Country::class, 'country_id', 'id');
     }
 
     /**
@@ -80,7 +83,7 @@ class Personality extends Model
      */
     public function province(): BelongsTo
     {
-        return $this->belongsTo(Province::class);
+        return $this->belongsTo(Province::class, 'province_id', 'id');
     }
 
     /**
@@ -88,7 +91,7 @@ class Personality extends Model
      */
     public function spouse(): BelongsTo
     {
-        return $this->belongsTo(Personality::class);
+        return $this->belongsTo(Personality::class, 'personality_id', 'id');
     }
 
     /**
@@ -96,7 +99,7 @@ class Personality extends Model
      */
     public function creditStatus(): BelongsTo
     {
-        return $this->belongsTo(Credit_Status::class);
+        return $this->belongsTo(Credit_Status::class, 'credit_status_id', 'id');
     }
 
     /**
@@ -104,6 +107,6 @@ class Personality extends Model
      */
     public function personalityStatus(): BelongsTo
     {
-        return $this->belongsTo(Personality_Status_Map::class);
+        return $this->belongsTo(Personality_Status_Map::class, 'personality_status_map', 'id');
     }
 }

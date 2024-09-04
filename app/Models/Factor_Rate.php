@@ -11,6 +11,9 @@ class Factor_Rate extends Model
 {
     use HasFactory;
 
+    protected $primarykey = 'id';
+    protected $table = 'factor_rate';
+
     /**
      * The attributes that are mass assignable.
      *
@@ -29,7 +32,7 @@ class Factor_Rate extends Model
      */
     public function paymentFrequency()
     {
-        return $this->belongsTo(Payment_Frequency::class);
+        return $this->belongsTo(Payment_Frequency::class, 'payment_frequency_id', 'id');
     }
 
     /**
@@ -37,6 +40,6 @@ class Factor_Rate extends Model
      */
     public function paymentDuration()
     {
-        return $this->belongsTo(Payment_Duration::class);
+        return $this->belongsTo(Payment_Duration::class, 'payment_duration_id', 'id');
     }
 }

@@ -16,7 +16,8 @@ class Customer extends Model
      *
      * @var string
      */
-    protected $primaryKey = 'customer_id';
+    protected $primaryKey = 'id';
+    protected $table = 'customer';
 
     /**
      * The attributes that are mass assignable.
@@ -37,6 +38,6 @@ class Customer extends Model
      */
     public function customerGroup()
     {
-        return $this->belongsTo(Customer_Group::class, 'group_id', 'group_id');
+        return $this->belongsTo(Customer_Group::class, 'group_id', 'id');
     }
 }

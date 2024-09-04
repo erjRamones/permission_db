@@ -7,7 +7,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Name_Type extends Model
+class Name_Type extends DBLibrary
 {
     use HasFactory;
 
@@ -17,6 +17,7 @@ class Name_Type extends Model
      * @var string
      */
     protected $primaryKey = 'id';
+    protected $table = 'name_type';
 
     /**
      * The attributes that are mass assignable.

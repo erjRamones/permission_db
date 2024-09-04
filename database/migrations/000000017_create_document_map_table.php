@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('document_map', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('description');
+            $table->timestamps();
         });
     }
 

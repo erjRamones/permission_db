@@ -7,7 +7,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Credit_Status extends Model
+class Credit_Status extends DBLibrary
 {
     use HasFactory;
 
@@ -16,13 +16,15 @@ class Credit_Status extends Model
      *
      * @var string
      */
-    protected $primaryKey = 'id';
+    protected $primarykey = 'id';
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
+
+    protected $table = 'credit_status';
     protected $fillable = [
         'description',
     ];

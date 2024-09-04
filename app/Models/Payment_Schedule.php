@@ -17,6 +17,7 @@ class Payment_Schedule extends Model
      * @var string
      */
     protected $primaryKey = 'id';
+    protected $table = 'payment_schedule';
 
     /**
      * The attributes that are mass assignable.

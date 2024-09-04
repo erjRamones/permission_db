@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('document_permission_map', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('document_permission_id');
             $table->string('description');
+            $table->timestamps();
         });
     }
 

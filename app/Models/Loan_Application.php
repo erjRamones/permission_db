@@ -12,6 +12,9 @@ class Loan_Application extends Model
 {
     use HasFactory;
 
+    protected $primarykey = 'id';
+    protected $table = 'loan_application';
+
     /**
      * The attributes that are mass assignable.
      *
@@ -43,7 +46,7 @@ class Loan_Application extends Model
      */
     public function customer(): BelongsTo
     {
-        return $this->belongsTo(Customer::class);
+        return $this->belongsTo(Customer::class, 'customer_id', 'id');
     }
 
     /**
@@ -51,7 +54,7 @@ class Loan_Application extends Model
      */
     public function group(): BelongsTo
     {
-        return $this->belongsTo(Customer_Group::class);
+        return $this->belongsTo(Customer_Group::class, 'group_id', 'id');
     }
 
     /**
@@ -59,7 +62,7 @@ class Loan_Application extends Model
      */
     public function paymentFrequency(): BelongsTo
     {
-        return $this->belongsTo(Payment_Frequency::class);
+        return $this->belongsTo(Payment_Frequency::class, 'payment_frequency_id', 'id');
     }
 
     /**
@@ -67,7 +70,7 @@ class Loan_Application extends Model
      */
     public function paymentDuration(): BelongsTo
     {
-        return $this->belongsTo(Payment_Duration::class);
+        return $this->belongsTo(Payment_Duration::class, 'payment_duration_id', 'id');
     }
 
     /**
@@ -75,7 +78,7 @@ class Loan_Application extends Model
      */
     public function approvedBy(): BelongsTo
     {
-        return $this->belongsTo(User_Account::class, 'approved_by_id');
+        return $this->belongsTo(User_Account::class, 'approved_by_id', 'id');
     }
 
     /**
@@ -83,7 +86,7 @@ class Loan_Application extends Model
      */
     public function preparedBy(): BelongsTo
     {
-        return $this->belongsTo(User_Account::class, 'prepared_by_id');
+        return $this->belongsTo(User_Account::class, 'prepared_by_id', 'id');
     }
 
     /**
@@ -91,7 +94,7 @@ class Loan_Application extends Model
      */
     public function releasedBy(): BelongsTo
     {
-        return $this->belongsTo(User_Account::class, 'released_by_id');
+        return $this->belongsTo(User_Account::class, 'released_by_id', 'id');
     }
 
     /**
@@ -99,6 +102,6 @@ class Loan_Application extends Model
      */
     public function lastModifiedBy(): BelongsTo
     {
-        return $this->belongsTo(User_Account::class, 'last_modified_by_id');
+        return $this->belongsTo(User_Account::class, 'last_modified_by_id', 'id');
     }
 }

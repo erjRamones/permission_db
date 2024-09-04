@@ -7,9 +7,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class User_Account_Status extends Model
+class User_Account_Status extends DBLibrary
 {
     use HasFactory;
+
+    protected $primarykey = 'id';
 
     /**
      * The attributes that are mass assignable.

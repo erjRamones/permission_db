@@ -6,7 +6,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-class Civil_Status extends Model
+class Civil_Status extends DBLibrary
 {
     use HasFactory;
 
@@ -15,13 +15,15 @@ class Civil_Status extends Model
      *
      * @var string
      */
-    protected $primaryKey = 'id';
+    protected $primarykey = 'id';
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
+
+    protected $table = 'civil_status';
     protected $fillable = [
         'description',
     ];

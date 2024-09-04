@@ -17,6 +17,7 @@ class Loan_Application_Comaker extends Model
      * @var string
      */
     protected $primaryKey = 'id';
+    protected $table = 'loan_application_comaker';
 
     /**
      * The attributes that are mass assignable.
