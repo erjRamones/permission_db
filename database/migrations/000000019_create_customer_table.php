@@ -9,10 +9,24 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
+
+    #In this table there are two foreign keys
     public function up(): void
     {
         Schema::create('customer', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('group_id'); #foregin key
+            $table->unsignedBigInteger('passbook_no');
+            $table->unsignedBigInteger('loan_count');
+            $table->boolean('enable_mortuary');
+            $table->dateTime('mortuary_coverage_start');
+            $table->dateTime('mortuary_coverage_end');
+            $table->unsignedBigInteger('personality_id'); #foreign key
+
+            #constraints
+            $table->foreign('group_id')->references('id')->on('customer_group')->onDelete('cascade');
+            $table->foreign('personality_id')->references('id')->on('personality')->onDelete('cascade');
+
             $table->timestamps();
         });
     }

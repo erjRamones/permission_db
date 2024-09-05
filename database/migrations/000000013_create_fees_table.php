@@ -17,7 +17,7 @@ return new class extends Migration
             $table->bigIncrements('id');
             $table->string('description');
             $table->decimal('amount', 8, 2);
-            $table->boolean('isactive');
+            $table->boolean('isactive')->default(true);
             $table->text('notes')->nullable();
             $table->timestamps();
         });

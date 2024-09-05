@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('gender_map', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('description');
+
+            $table->unique('description');
             $table->timestamps();
         });
     }

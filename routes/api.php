@@ -11,4 +11,7 @@ Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth:sanc
 
 Route::middleware('auth:sanctum')->prefix('libraries')->group(function () {
     Route::get('/{modeltype}', [DBLibraryController::class, 'index']);
+    Route::post('/{modeltype}/{object}', [DBLibraryController::class, 'store']);
+    Route::put('/{modeltype}/{id}/{object}', [DBLibraryController::class,'update']);
+    Route::delete('/{modeltype}/{id}', [DBLibraryController::class, 'destroy']);
 });

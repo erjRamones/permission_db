@@ -26,6 +26,7 @@ use App\Models\Document_Map; #Done
 use App\Models\Document_Permission_Map; #Done
 use App\Models\Name_Type; #Done
 use App\Models\Customer_Group; #Done
+use App\Models\Personality;
 
 class DatabaseSeeder extends Seeder
 {
@@ -36,8 +37,37 @@ class DatabaseSeeder extends Seeder
     {
         $faker = Faker::create();
 
-        $c = 100;
+        $c = 500;
         $f = 0;
+
+        for($i = 0; $i < 100; $i++)
+        {
+            Personality::create([
+                'datetime_registered'=>now(),
+                'family_name'=>$faker->name(),
+                'middle_name'=>$faker->name(),
+                'first_name'=>$faker->name(),
+                'description'=>$faker->sentence(6),
+                'birthday'=>now(),
+                'civil_status'=>$faker->sentence(6),
+                'gender_code'=>$faker->numberBetween(1,2),
+                'house_street'=>$faker->address(),
+                'purok_zone'=>$faker->state(),
+                'postal_code'=> $faker->postcode(),
+                'telephone_no'=>$faker->phoneNumber(),
+                'email_address'=>$faker->email(),
+                'cellphone_no'=> $faker->phoneNumber(),
+                'name_type_code'=>$faker->numberBetween(1,2),
+                'personality_status_code'=>1,
+                'branch_id'=>$faker->numberBetween(1,10),
+                'barangay_id'=>$faker->numberBetween(1,10),
+                'city_id'=>$faker->numberBetween(1,10),
+                'country_id'=>$faker->numberBetween(1,10),
+                'province_id'=>$faker->numberBetween(1,10),
+                'spouse_id'=>$faker->numberBetween(1,10),
+                'credit_status_id'=>$faker->numberBetween(1,10),
+            ]);
+        }
 
         $modelTypes = [
             'barangay',
@@ -117,15 +147,16 @@ class DatabaseSeeder extends Seeder
         }
 
         Employee::create([
-            'sss_no' => 1,
-            'phic_no' => 1,
-            'tin_no' => 1,
-            'datetime_hired' => now(),
-            'datetime_resigned' => now(),
+            'sss_no' => $faker->randomDigit(),
+            'phic_no' => $faker->randomDigit(),
+            'tin_no' => $faker->randomDigit(),
+            'datetime_hired' => $faker->date(),
+            'datetime_resigned' => $faker->date(),
+            'personality_id' => $faker->numberBetween(1,100),
         ]);
 
         User_Account_Status::create([
-            'description' => 'Active',
+            'description' => $faker->name(['Active', 'Not Active']),
         ]);
 
 
@@ -135,8 +166,7 @@ class DatabaseSeeder extends Seeder
             'middle_name' => 'Sasas',
             'email' => 'Sasas@email.com',
             'password' => Hash::make('password'),
-            'datetime_registered' => now(),
-            'employee_id' => 1,
+            'employee_id' => $faker->numberBetween(1,100),
             'status_id' => 1,
         ]);
     }

@@ -6,6 +6,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Employee extends Model
 {
@@ -31,5 +32,11 @@ class Employee extends Model
         'tin_no',
         'datetime_hired',
         'datetime_resigned',
+        'personality',
     ];
+
+    public function personality(): BelongsTo
+    {
+        return $this->belongsTo(Employee::class, 'personality_id', 'id');
+    }
 }

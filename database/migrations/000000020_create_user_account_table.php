@@ -21,7 +21,6 @@ return new class extends Migration
             $table->string('middle_name')->nullable();
             $table->string('password');
             $table->string('email')->unique();
-            $table->timestamp('datetime_registered');
             $table->unsignedBigInteger('employee_id');
 
             $table->foreign('status_id')->references('id')->on('user_account_status')->onDelete('cascade');

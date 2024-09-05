@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('payment_schedule', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->dateTime('datetime_created');
+            //$table->dateTime('datetime_created'); redundant and has similar function to timestamps();
             $table->unsignedBigInteger('customer_id');
             $table->unsignedBigInteger('loan_released_id');
             $table->dateTime('datetime_due');

@@ -18,7 +18,8 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('document_map_code');
             $table->unsignedBigInteger('document_permission');
-            $table->timestamp('datetime_granted');
+            $table->dateTime('datetime_granted');
+            $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('user_account');
             $table->foreign('document_map_code')->references('id')->on('document_map');

@@ -22,8 +22,11 @@ return new class extends Migration
             $table->text('notes')->nullable();
             $table->timestamps();
 
+            #constraints
             $table->foreign('payment_frequency_id')->references('id')->on('payment_frequency')->onDelete('cascade');
             $table->foreign('payment_duration_id')->references('id')->on('payment_duration')->onDelete('cascade');
+
+            $table->unique('description');
         });
     }
 

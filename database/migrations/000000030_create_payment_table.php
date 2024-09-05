@@ -21,7 +21,7 @@ return new class extends Migration
             $table->unsignedBigInteger('prepared_by_id');
             $table->decimal('amount_paid', 10, 2);
             $table->text('notes')->nullable();
-            $table->timestamps(); #This is the substitue of created_at field
+            $table->timestamps(); #This is the substitue of created_at field and updated_at
 
             $table->foreign('customer_id')->references('id')->on('customer');
             $table->foreign('prepared_by_id')->references('id')->on('user_account');

@@ -7,6 +7,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Personality extends Model
 {
@@ -108,5 +109,15 @@ class Personality extends Model
     public function personalityStatus(): BelongsTo
     {
         return $this->belongsTo(Personality_Status_Map::class, 'personality_status_map', 'id');
+    }
+
+    public function employee(): HasOne
+    {
+        return $this->hasOne(Employee::class,'id', 'id');
+    }
+
+    public function customer(): HasOne
+    {
+        return $this->hasOne(Customer::class,'id', 'id');
     }
 }

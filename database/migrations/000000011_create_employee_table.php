@@ -18,6 +18,10 @@ return new class extends Migration
             $table->string('tin_no');
             $table->dateTime('datetime_hired');
             $table->dateTime('datetime_resigned');
+            $table->unsignedBigInteger('personality_id'); #foreign key
+
+            #constraints
+            $table->foreign('personality_id')->references('id')->on('personality')->onDelete('cascade');
             $table->timestamps();
         });
     }

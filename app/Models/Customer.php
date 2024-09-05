@@ -6,6 +6,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Customer extends Model
 {
@@ -31,13 +32,19 @@ class Customer extends Model
         'enable_motuary',
         'motuary_coverage_start',
         'mortuary_coverage_end',
+        'personality_id',
     ];
 
     /**
      * Get the customer group that owns the customer.
      */
-    public function customerGroup()
+    public function customerGroup(): BelongsTo
     {
         return $this->belongsTo(Customer_Group::class, 'group_id', 'id');
+    }
+
+    public function personality(): BelongsTo
+    {
+        return $this->belongsTo(Personality::class,'personality_id', 'id');
     }
 }

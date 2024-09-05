@@ -15,13 +15,14 @@ return new class extends Migration
     {
         Schema::create('loan_release', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->dateTime('datetime_created');
+            //$table->dateTime('datetime_created'); this one is redundant similar function to timestamps();
             $table->dateTime('datetime_prepared');
             $table->string('passbook_number');
             $table->unsignedBigInteger('loan_application_id');
             $table->unsignedBigInteger('prepared_by_id');
-            $table->timestamp('datetime_first_due');
+            $table->dateTime('datetime_first_due');
             $table->text('notes')->nullable();
+            $table->timestamps();
 
             $table->foreign('loan_application_id')->references('id')->on('loan_application')->onDelete('cascade');
             $table->foreign('prepared_by_id')->references('id')->on('user_account')->onDelete('cascade');

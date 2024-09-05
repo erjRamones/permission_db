@@ -16,6 +16,9 @@ return new class extends Migration
         Schema::create('customer_group', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('description');
+
+            #constraints
+            $table->unique('description');
             $table->timestamps();
         });
     }
