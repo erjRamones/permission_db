@@ -30,6 +30,8 @@ use App\Models\Personality;
 
 class DatabaseSeeder extends Seeder
 {
+    private $c;
+    private $f;
     /**
      * Seed the application's database.
      */
@@ -37,8 +39,8 @@ class DatabaseSeeder extends Seeder
     {
         $faker = Faker::create();
 
-        $c = 500;
-        $f = 0;
+       $this->c = 500;
+        $this->f = 0;
 
         for($i = 0; $i < 100; $i++)
         {
