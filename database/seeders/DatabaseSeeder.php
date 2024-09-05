@@ -40,7 +40,7 @@ class DatabaseSeeder extends Seeder
         $faker = Faker::create();
 
        $this->c = 500;
-        $this->f = 0;
+        $this->f = 1;
 
         for($i = 0; $i < 100; $i++)
         {
@@ -146,6 +146,7 @@ class DatabaseSeeder extends Seeder
             }
 
             $this->c--;
+            $this->f++;
         }
 
         Employee::create([
