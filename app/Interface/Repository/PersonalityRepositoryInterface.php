@@ -2,10 +2,8 @@
 
 namespace App\Interface\Repository;
 
-interface UserRepositoryInterface
+interface PersonalityRepositoryInterface
 {
-    public function findByEmail(string $email);
-
     public function findMany();
 
     public function findOneById(int $id);

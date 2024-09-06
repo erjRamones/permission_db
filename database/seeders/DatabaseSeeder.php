@@ -26,7 +26,7 @@ use App\Models\Document_Map; #Done
 use App\Models\Document_Permission_Map; #Done
 use App\Models\Name_Type; #Done
 use App\Models\Customer_Group; #Done
-use App\Models\Personality;
+use App\Models\Personality; #Done
 
 class DatabaseSeeder extends Seeder
 {
@@ -172,5 +172,11 @@ class DatabaseSeeder extends Seeder
             'employee_id' => $faker->numberBetween(1,100),
             'status_id' => 1,
         ]);
+
+        $personality = Personality::findOrFail(1);
+        echo 'employee id get: ', $personality->id;
+        echo 'empoyee name get: ', $personality->family_name;
+        echo 'empoyee name get: ', $personality->middle_name;
+        echo 'empoyee name get: ', $personality->first_name;
     }
 }

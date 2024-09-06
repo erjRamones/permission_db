@@ -42,6 +42,8 @@ class EmployeeRepository implements EmployeeRepositoryInterface
         $employee->personality_id = $payload->personality_id;
         $employee->save();
 
+        #importante mag fresh() pag human ug gamit sa save() para mu new instance napud ug dili
+        #ma apil ang mga unsaved data sa last instance sa model
         return $employee->fresh();
     }
 

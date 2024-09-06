@@ -17,6 +17,7 @@ use App\Models\Document_Map; #Done
 use App\Models\Document_Permission_Map; #Done
 use App\Models\Name_Type; #Done
 use App\Models\Customer_Group; #Done
+use App\Models\Fees; #Done
 
 /*
     KINI na section SA APP\\ dinhi pag pili ug unsa na model type ang gamit pang insert, delete, or create
