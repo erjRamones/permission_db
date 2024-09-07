@@ -11,7 +11,7 @@ class UserController extends Controller
 
 
     private $userService;
-    public function __construct(UserServiceInterface $userService) 
+    public function __construct(UserServiceInterface $userService)
     {
         $this->$userService = $userService;
     }
@@ -55,6 +55,6 @@ class UserController extends Controller
     public function destroy(string $id)
     {
         return $this->userService->deleteUser($id);
-        
+
     }
 }

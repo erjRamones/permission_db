@@ -5,7 +5,7 @@ namespace App\Http\Resources;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class UserResource extends JsonResource
+class LoanApplicationCoMakerResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -16,9 +16,9 @@ class UserResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'last_name' => $this->name,
-            'first_name' => $this->email,
-            'middle_name' => $this->created_at,
+            'loan_application_id' => $this->loan_application_id, // Assuming 'loan_application_id' should be mapped from $this->loan_application_id
+            'customer_id' => $this->customer_id,
+            'encoding_order' => $this->encoding_order,           // Assuming 'encoding_order' should be mapped from $this->encoding_order
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ];

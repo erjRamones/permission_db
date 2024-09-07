@@ -169,7 +169,7 @@ class DatabaseSeeder extends Seeder
             'middle_name' => 'Sasas',
             'email' => 'Sasas@email.com',
             'password' => Hash::make('password'),
-            'employee_id' => $faker->numberBetween(1,100),
+            'employee_id' => 1,
             'status_id' => 1,
         ]);
 

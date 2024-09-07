@@ -25,24 +25,23 @@ class PersonalityService implements PersonalityServiceInterface
     public function findPersonalityById(int $id)
     {
         $personality =$this->personalityRepository->findOneById($id);
-        return PersonalityResource::collection($personality);
+        return new PersonalityResource($personality);
     }
 
     public function createPersonality(object $payload)
     {
         $personality =$this->personalityRepository->create($payload);
-        return PersonalityResource::collection($personality);
+        return new PersonalityResource($personality);
     }
 
     public function updatePersonality(object $payload, int $id)
     {
         $personality =$this->personalityRepository->update($payload, $id);
-        return PersonalityResource::collection($personality);
+        return new PersonalityResource($personality);
     }
 
     public function deletePersonality(int $id)
     {
-        $personality =$this->personalityRepository->delete($id);
-        return PersonalityResource::collection($personality);
+        return $this->personalityRepository->delete($id);
     }
 }

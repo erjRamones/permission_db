@@ -23,8 +23,8 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->unsignedBigInteger('employee_id');
 
-            $table->foreign('status_id')->references('id')->on('user_account_status')->onDelete('cascade');
-            // $table->foreign('employee_id')->references('id')->on('employees');
+            //$table->foreign('status_id')->references('id')->on('user_account_status')->onDelete('cascade');
+            $table->foreign('employee_id')->references('id')->on('employee')->onDelete('cascade');
 
             $table->timestamps();
         });
