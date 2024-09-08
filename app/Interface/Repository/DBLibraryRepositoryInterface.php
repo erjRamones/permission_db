@@ -6,9 +6,9 @@ interface DBLibraryRepositoryInterface
 {
     public function findMany(string $modelType);
 
-    public function findOneById(string $modelType, int $id);
+    public function findOneById(object $payload, int $id);
 
-    public function create(string $modelType, object $payload);
+    public function create(object $payload);
 
     public function update(string $modelType, int $id, object $payload);
 

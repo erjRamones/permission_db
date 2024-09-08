@@ -12,25 +12,25 @@ class DBLibraryRepository implements DBLibraryRepositoryInterface
 {
     public function findMany(string $modeltype)
     {
-        $dblibrary = new DBBaseLibraryFactory($modeltype, null);
+        $dblibrary = new DBBaseLibraryFactory();
         return $dblibrary::findMany($modeltype);
     }
 
-    public function findOneById(string $modeltype, int $id)
+    public function findOneById(object $payload, int $id)
     {
-        $dblibrary = new DBBaseLibraryFactory($modeltype, null);
-        return $dblibrary::findMany($dblibrary->$modeltype);
+        $dblibrary = new DBBaseLibraryFactory();
+        return $dblibrary::findOne($payload, $id);
     }
 
-    public function create(string $modeltype, object $payload)
+    public function create(object $payload)
     {
-        $dblibrary = new DBBaseLibraryFactory($modeltype, $payload);
-        return $dblibrary::createEntry($dblibrary->$modeltype, $payload);
+        $dblibrary = new DBBaseLibraryFactory();
+        return $dblibrary::createEntry($payload);
     }
 
     public function delete(string $modeltype, int $id)
     {
-        $dblibrary = new DBBaseLibraryFactory($modeltype, null);
+        $dblibrary = new DBBaseLibraryFactory();
         return $dblibrary::deleteEntry($dblibrary->$modeltype, $id);
     }
 

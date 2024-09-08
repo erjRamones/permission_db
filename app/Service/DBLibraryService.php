@@ -18,29 +18,28 @@ class DBLibraryService implements DBLibraryServiceInterface
     public function findEntries(string $modeltype)
     {
         $library = $this->dbLibraryRepository->findMany($modeltype);
-
         return DBLibraryResource::collection($library);
     }
 
-    public function findEntry(string $modeltype, int $id)
+    public function findEntry(object $payload, int $id)
     {
-        $library = $this->dbLibraryRepository->findOneById($modeltype, $id);
+        $library = $this->dbLibraryRepository->findOneById($payload, $id);
 
-        return DBLibraryResource::collection($library);
+        return new DBLibraryResource($library);
     }
 
-    public function createEntry(string $modeltype, object $payload)
+    public function createEntry(object $payload)
     {
-        $library = $this->dbLibraryRepository->create($modeltype, $payload);
+        $library = $this->dbLibraryRepository->create($payload);
 
-        return DBLibraryResource::collection($library);
+        return new DBLibraryResource($library);
     }
 
     public function updateEntryById(string $modeltype, object $payload, int $id)
     {
         $library = $this->dbLibraryRepository->update($modeltype, $id, $payload);
 
-        return dbLibraryResource::collection($library);
+        return new dbLibraryResource($library);
     }
 
     public function deleteEntryById(string $modeltype, int $id)

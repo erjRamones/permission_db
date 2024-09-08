@@ -32,7 +32,7 @@ class Employee extends Model
         'tin_no',
         'datetime_hired',
         'datetime_resigned',
-        'personality',
+        'personality_id',
     ];
 
     public function personality(): BelongsTo

@@ -17,7 +17,6 @@ use App\Models\Document_Map; #Done
 use App\Models\Document_Permission_Map; #Done
 use App\Models\Name_Type; #Done
 use App\Models\Customer_Group; #Done
-use App\Models\Fees; #Done
 
 /*
     KINI na section SA APP\\ dinhi pag pili ug unsa na model type ang gamit pang insert, delete, or create
@@ -34,55 +33,51 @@ use App\Models\Fees; #Done
 
 class DBBaseLibraryFactory
 {
-    private $modelType;
-    private $description;
+    public static function createEntry($description)
+    {
+        echo $description->type;
 
-    public function __construct($modelType, $description)
-    {
-        $this->modelType = $modelType;
-        $this->description = $description;
-    }
-    public static function createEntry($modelType, $description)
-    {
-        switch ($modelType) {
+        switch ($description->type) {
             case 'barangay':
-                return Barangay::createEntry(['description' => $description]);
+                return Barangay::createEntry(['description' => $description->description]);
             case 'branch':
-                return Branch::createEntry(['description' => $description]);
+                return Branch::createEntry(['description' => $description->description]);
             case 'city':
-                return City::createEntry(['description' => $description]);
+                return City::createEntry(['description' => $description->description]);
             case 'civil_status':
-                return Civil_Status::createEntry(['description' => $description]);
+                return Civil_Status::createEntry(['description' => $description->description]);
             case 'spouse':
-                return Spouse::createEntry(['description' => $description]);
+                return Spouse::createEntry(['description' => $description->description]);
             case 'gender_map':
-                return Gender_Map::createEntry(['description' => $description]);
+                return Gender_Map::createEntry(['description' => $description->description]);
             case 'country':
-                return Country::createEntry(['description' => $description]);
+                return Country::createEntry(['description' => $description->description]);
             case 'province':
-                return Province::createEntry(['description' => $description]);
+                return Province::createEntry(['description' => $description->description]);
             case 'credit_status':
-                return Credit_Status::createEntry(['description' => $description]);
+                return Credit_Status::createEntry(['description' => $description->description]);
             case 'personality_status_map':
-                return Personality_Status_Map::createEntry(['description' => $description]);
+                return Personality_Status_Map::createEntry(['description' => $description->description]);
             case 'user_account_status':
-                return User_Account_Status::createEntry(['description' => $description]);
+                return User_Account_Status::createEntry(['description' => $description->descriptiondescription]);
             case 'document_map':
-                return Document_Map::createEntry(['description' => $description]);
+                return Document_Map::createEntry(['description' => $description->description]);
             case 'document_permission_map':
-                return Document_Permission_Map::createEntry(['description' => $description]);
+                return Document_Permission_Map::createEntry(['description' => $description->descriptiondescription]);
             case 'name_type':
-                return Name_Type::createEntry(['description' => $description]);
+                return Name_Type::createEntry(['description' => $description->description]);
             case 'customer_group':
-                return Customer_Group::createEntry(['description' => $description]);
+                return Customer_Group::createEntry(['description' => $description->description]);
             default:
-                throw new \InvalidArgumentException("Unknown model type: $modelType");
+                throw new \InvalidArgumentException("Unknown model type: ", $description->type);
         }
     }
 
-    public static function findOne($modelType, $id)
+    public static function findOne($payload, $id)
     {
-        switch ($modelType) {
+        $type = $payload->modeltype;
+        echo 1;
+        switch ($type) {
             case 'barangay':
                 return Barangay::findOne($id);
             case 'branch':
@@ -114,7 +109,7 @@ class DBBaseLibraryFactory
             case 'customer_group':
                 return Customer_Group::findOne($id);
             default:
-                throw new \InvalidArgumentException("Unknown model type: $modelType");
+                throw new \InvalidArgumentException("Unknown model type: $type");
         }
     }
 
