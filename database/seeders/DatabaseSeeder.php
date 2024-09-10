@@ -39,12 +39,13 @@ class DatabaseSeeder extends Seeder
     {
         $faker = Faker::create();
 
-       $this->c = 500;
+        $this->c = 500;
         $this->f = 1;
 
+        //do not include this was removed from database!
         for($i = 0; $i < 100; $i++)
         {
-            echo "Created";
+            echo "Created" + $i;
             Spouse::create([
                 'family_name'=>$faker->name(),
                 'first_name'=>$faker->name(),
