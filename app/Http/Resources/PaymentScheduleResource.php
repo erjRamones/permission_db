@@ -15,15 +15,16 @@ class PaymentScheduleResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-        'datetime_created' => $this->datetime_created,
-        'customer_id' => $this->customer_id,
-        'loan_released_id' => $this->loan_released_id,
-        'datetime_due' => $this->datetime_due,
-        'amount_due' => $this->amount_due,
-        'amount_interest' => $this->amount_interest,
-        'amount_paid' => $this->amount_paid,
-        'payment_status_code' => $this->payment_status_code,
-        'remarks' => $this->remarks,
+            'id' => $this->id,
+            'datetime_created' => $this->datetime_created,
+            'customer_id' => $this->customer_id,
+            'loan_released_id' => $this->loan_released_id,
+            'datetime_due' => $this->datetime_due,
+            'amount_due' => $this->amount_due,
+            'amount_interest' => $this->amount_interest,
+            'amount_paid' => $this->amount_paid,
+            'payment_status_code' => $this->payment_status_code,
+            'remarks' => $this->remarks,
         ];
     }
 }

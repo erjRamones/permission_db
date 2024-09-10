@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\PersonalityStoreRequest;
+use App\Http\Requests\PersonalityUpdateRequest;
 use App\Interface\Service\PersonalityServiceInterface;
 use Illuminate\Http\Request;
 
@@ -44,7 +45,7 @@ class PersonalityController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(PersonalityStoreRequest $request, int $id)
+    public function update(PersonalityUpdateRequest $request, int $id)
     {
         return $this->personalityService->updatePersonality($request, $id);
 

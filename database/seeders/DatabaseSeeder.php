@@ -15,7 +15,6 @@ use App\Models\Barangay; #Done
 use App\Models\Branch; #Done
 use App\Models\City; #Done
 use App\Models\Civil_Status; #Done
-use App\Models\Spouse;  #Done
 use App\Models\Gender_Map; #Done
 use App\Models\Country; #Done
 use App\Models\Province; #Done
@@ -27,6 +26,7 @@ use App\Models\Document_Permission_Map; #Done
 use App\Models\Name_Type; #Done
 use App\Models\Customer_Group; #Done
 use App\Models\Personality; #Done
+use App\Models\Spouse;
 
 class DatabaseSeeder extends Seeder
 {
@@ -41,6 +41,19 @@ class DatabaseSeeder extends Seeder
 
        $this->c = 500;
         $this->f = 1;
+
+        for($i = 0; $i < 100; $i++)
+        {
+            echo "Created";
+            Spouse::create([
+                'family_name'=>$faker->name(),
+                'first_name'=>$faker->name(),
+                'middle_name'=>$faker->name(),
+                'gender_code'=>$faker->numberBetween(1,2),
+                'email_address'=>$faker->email(),
+                'cellphone_no'=>$faker->phoneNumber(),
+            ]);
+        }
 
         for($i = 0; $i < 100; $i++)
         {
@@ -76,7 +89,6 @@ class DatabaseSeeder extends Seeder
             'branch',
             'city',
             'civil_status',
-            'spouse',
             'gender_map',
             'country',
             'province',
@@ -107,9 +119,6 @@ class DatabaseSeeder extends Seeder
                     break;
                 case 'civil_status':
                     Civil_Status::createEntry($description);
-                    break;
-                case 'spouse':
-                    Spouse::createEntry($description);
                     break;
                 case 'gender_map':
                     Gender_Map::createEntry($description);

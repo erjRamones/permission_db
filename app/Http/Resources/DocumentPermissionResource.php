@@ -15,10 +15,11 @@ class DocumentPermissionResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-        'user_id' => $this->user_id,
-        'document_map_code' => $this->document_map_code,
-        'document_permission' => $this->document_permission,
-        'datetime_granted' => $this->datetime_granted,
+            'id' => $this->id,
+            'user_id' => $this->user_id,
+            'document_map_code' => $this->document_map_code,
+            'document_permission' => $this->document_permission,
+            'datetime_granted' => $this->datetime_granted,
         ];
     }
 }

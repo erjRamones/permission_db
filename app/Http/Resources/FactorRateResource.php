@@ -15,6 +15,7 @@ class FactorRateResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
+            'id' => $this->id,
             'payment_frequency_id'=> $this->payment_frequency_id,
             'payment_duration_id'=> $this->payment_duration_id,
             'description'=> $this->description,

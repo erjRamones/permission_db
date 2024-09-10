@@ -15,13 +15,14 @@ class LoanReleaseResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-        'datetime_created' => $this->datetime_created,
-        'datetime_prepared' => $this->datetime_prepared,
-        'passbook_number' => $this->passbook_number,
-        'loan_application_id' => $this->loan_application_id,
-        'prepared_by_id' => $this->prepared_by_id,
-        'datetime_first_due' => $this->datetime_first_due,
-        'notes' => $this->notes,
+            'id' => $this->id,
+            'datetime_created' => $this->datetime_created,
+            'datetime_prepared' => $this->datetime_prepared,
+            'passbook_number' => $this->passbook_number,
+            'loan_application_id' => $this->loan_application_id,
+            'prepared_by_id' => $this->prepared_by_id,
+            'datetime_first_due' => $this->datetime_first_due,
+            'notes' => $this->notes,
         ];
     }
 }

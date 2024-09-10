@@ -21,6 +21,7 @@ use App\Interface\Repository\PaymentLineRepositoryInterface;
 use App\Interface\Repository\PaymentRepositoryInterface;
 use App\Interface\Repository\PaymentScheduleRepositoryInterface;
 use App\Interface\Repository\PersonalityRepositoryInterface;
+use App\Interface\Repository\SpouseRepositoryInterface;
 use App\Interface\Repository\UserRepositoryInterface;
 use App\Interface\Service\AuthenticationServiceInterface;
 use App\Interface\Service\CustomerServiceInterface;
@@ -40,6 +41,7 @@ use App\Interface\Service\PaymentLineServiceInterface;
 use App\Interface\Service\PaymentScheduleServiceInterface;
 use App\Interface\Service\PaymentServiceInterface;
 use App\Interface\Service\PersonalityServiceInterface;
+use App\Interface\Service\SpouseServiceInterface;
 use App\Repository\CustomerRepository;
 use App\Repository\DBLibraryRepository;
 use App\Repository\DocumentMapRepository;
@@ -56,6 +58,7 @@ use App\Repository\PaymentFrequencyRepository;
 use App\Repository\PaymentLineRepository;
 use App\Repository\PaymentRepository;
 use App\Repository\PersonalityRepository;
+use App\Repository\SpouseRepository;
 use App\Repository\UserRepository;
 use App\Service\AuthenticationService;
 use App\Service\CustomerService;
@@ -76,6 +79,7 @@ use App\Service\PaymentLineService;
 use App\Service\PaymentScheduleService;
 use App\Service\PaymentService;
 use App\Service\PersonalityService;
+use App\Service\SpouseService;
 use Illuminate\Support\ServiceProvider;
 
 class RepositoryServiceProvider extends ServiceProvider
@@ -86,6 +90,7 @@ class RepositoryServiceProvider extends ServiceProvider
     public function register(): void
     {
         //Repository
+        $this->app->bind(SpouseRepositoryInterface::class, SpouseRepository::class);
         $this->app->bind(PaymentRepositoryInterface::class, PaymentRepository::class);
         $this->app->bind(PaymentLineRepositoryInterface::class, PaymentLineRepository::class);
         $this->app->bind(DocumentMapRepositoryInterface::class, DocumentMapRepository::class);
@@ -107,6 +112,7 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(EmployeeRepositoryInterface::class, EmployeeRepository::class);
 
         //Service
+        $this->app->bind(SpouseServiceInterface::class, SpouseService::class);
         $this->app->bind(PaymentServiceInterface::class, PaymentService::class);
         $this->app->bind(PaymentLineServiceInterface::class, PaymentLineService::class);
         $this->app->bind(DocumentMapServiceInterface::class, DocumentMapService::class);

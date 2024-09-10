@@ -15,11 +15,12 @@ class PaymentLineResource extends JsonResource
     public function toArray(Request $request): array
     {
         return[
-        'payment_id' => $this->payment_id,
-        'payment_schedule_id' => $this->payment_schedule_id,
-        'balance' => $this->balance,
-        'amount_paid' => $this->amount_paid,
-        'remarks' => $this->remarks,
+            'id' => $this->id,
+            'payment_id' => $this->payment_id,
+            'payment_schedule_id' => $this->payment_schedule_id,
+            'balance' => $this->balance,
+            'amount_paid' => $this->amount_paid,
+            'remarks' => $this->remarks,
         ];
     }
 }

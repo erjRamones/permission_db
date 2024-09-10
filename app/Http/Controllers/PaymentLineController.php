@@ -38,7 +38,7 @@ class PaymentLineController extends Controller
     public function show(int $id)
     {
         return $this->paymentLineService->findPaymentLineById($id);
-        
+
     }
 
     /**
@@ -47,7 +47,7 @@ class PaymentLineController extends Controller
     public function update(PaymentLineUpdateRequest $request, int $id)
     {
         return $this->paymentLineService->updatePaymentLine($request, $id);
-        
+
     }
 
     /**
@@ -56,6 +56,6 @@ class PaymentLineController extends Controller
     public function destroy(int $id)
     {
         return $this->paymentLineService->deletePaymentLine($id);
-        
+
     }
 }

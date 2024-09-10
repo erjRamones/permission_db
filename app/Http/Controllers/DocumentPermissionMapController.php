@@ -7,7 +7,7 @@ use App\Http\Requests\DocumentPermissionMapUpdateRequest;
 use App\Interface\Service\DocumentPermissionMapServiceInterface;
 use Illuminate\Http\Request;
 
-class DocumentPermisionMapController extends Controller
+class DocumentPermissionMapController extends Controller
 {
     private $documentPermissionMapService;
 
@@ -30,7 +30,7 @@ class DocumentPermisionMapController extends Controller
     public function store(DocumentPermissionMapStoreRequest $request)
     {
         return $this->documentPermissionMapService->createDocumentPermissionMap($request);
-        
+
     }
 
     /**
@@ -39,7 +39,7 @@ class DocumentPermisionMapController extends Controller
     public function show(int $id)
     {
         return $this->documentPermissionMapService->findDocumentPermissionMapById($id);
-        
+
     }
 
     /**
@@ -48,7 +48,7 @@ class DocumentPermisionMapController extends Controller
     public function update(DocumentPermissionMapUpdateRequest $request, int $id)
     {
         return $this->documentPermissionMapService->updateDocumentPermissionMap($request, $id);
-        
+
     }
 
     /**

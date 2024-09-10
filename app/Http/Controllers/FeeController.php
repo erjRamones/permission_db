@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\FeeStoreRequest;
+use App\Http\Requests\FeeUpdateRequest;
 use App\Interface\Service\FeeServiceInterface;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -19,7 +21,7 @@ class FeeController extends Controller
         return $this->feeService->findFees();
     }
 
-    public function store(FormRequest $request)
+    public function store(FeeStoreRequest $request)
     {
         return $this->feeService->createFee($request);
     }
@@ -29,7 +31,7 @@ class FeeController extends Controller
         return $this->feeService->findFeeById($id);
     }
 
-    public function update(int $id, FormRequest $request)
+    public function update(FeeUpdateRequest $request, int $id)
     {
         return $this->feeService->updateFee($request, $id);
     }

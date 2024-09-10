@@ -6,7 +6,7 @@ use App\Http\Requests\DocumentPermissionStoreRequest;
 use App\Http\Requests\DocumentPermissionUpdateRequest;
 use App\Interface\Service\DocumentPermissionServiceInterface;
 
-class DocumentPermisionController extends Controller
+class DocumentPermissionController extends Controller
 {
     private $documentPermissionService;
 
@@ -29,7 +29,7 @@ class DocumentPermisionController extends Controller
     public function store(DocumentPermissionStoreRequest $request)
     {
         return $this->documentPermissionService->createDocumentPermission($request);
-        
+
     }
 
     /**
@@ -38,7 +38,7 @@ class DocumentPermisionController extends Controller
     public function show(int $id)
     {
         return $this->documentPermissionService->findDocumentPermissionById($id);
-        
+
     }
 
     /**
@@ -47,7 +47,7 @@ class DocumentPermisionController extends Controller
     public function update(DocumentPermissionUpdateRequest $request, int $id)
     {
         return $this->documentPermissionService->updateDocumentPermission($request, $id);
-        
+
     }
 
     /**

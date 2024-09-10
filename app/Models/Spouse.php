@@ -7,7 +7,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Spouse extends DBLibrary
+class Spouse extends Model
 {
     use HasFactory;
 
@@ -25,6 +25,11 @@ class Spouse extends DBLibrary
      * @var array<int, string>
      */
     protected $fillable = [
-        'description',
+        'family_name',
+        'first_name',
+        'middle_name',
+        'gender_code',
+        'email_address',
+        'cellphone_no',
     ];
 }

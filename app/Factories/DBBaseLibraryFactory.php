@@ -6,7 +6,6 @@ use App\Models\Barangay; #Done
 use App\Models\Branch; #Done
 use App\Models\City; #Done
 use App\Models\Civil_Status; #Done
-use App\Models\Spouse;  #Done
 use App\Models\Gender_Map; #Done
 use App\Models\Country; #Done
 use App\Models\Province; #Done
@@ -46,8 +45,6 @@ class DBBaseLibraryFactory
                 return City::createEntry(['description' => $description->description]);
             case 'civil_status':
                 return Civil_Status::createEntry(['description' => $description->description]);
-            case 'spouse':
-                return Spouse::createEntry(['description' => $description->description]);
             case 'gender_map':
                 return Gender_Map::createEntry(['description' => $description->description]);
             case 'country':
@@ -86,8 +83,6 @@ class DBBaseLibraryFactory
                 return City::findOne($id);
             case 'civil_status':
                 return Civil_Status::findOne($id);
-            case 'spouse':
-                return Spouse::findOne($id);
             case 'gender_map':
                 return Gender_Map::findOne($id);
             case 'country':
@@ -124,8 +119,6 @@ class DBBaseLibraryFactory
                 return City::findMany();
             case 'civil_status':
                 return Civil_Status::findMany();
-            case 'spouse':
-                return Spouse::findMany();
             case 'gender_map':
                 return Gender_Map::findMany();
             case 'country':
@@ -162,8 +155,6 @@ class DBBaseLibraryFactory
                 return City::deleteEntry($id);
             case 'civil_status':
                 return Civil_Status::deleteEntry($id);
-            case 'spouse':
-                return Spouse::deleteEntry($id);
             case 'gender_map':
                 return Gender_Map::deleteEntry($id);
             case 'country':
@@ -200,8 +191,6 @@ class DBBaseLibraryFactory
                 return City::updateEntry($id, $description);
             case 'civil_status':
                 return Civil_Status::updateEntry($id, $description);
-            case 'spouse':
-                return Spouse::updateEntry($id, $description);
             case 'gender_map':
                 return Gender_Map::updateEntry($id, $description);
             case 'country':

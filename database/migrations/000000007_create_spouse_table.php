@@ -13,10 +13,15 @@ return new class extends Migration
     {
         Schema::create('spouse', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('description');
+            $table->string('family_name');
+            $table->string('first_name');
+            $table->string('middle_name');
+            $table->unsignedBigInteger('gender_code');
+            $table->string('email_address');
+            $table->string('cellphone_no');
 
             #constraints
-            $table->unique('description');
+            $table->unique(['first_name', 'family_name', 'middle_name']);
             $table->timestamps();
         });
     }
