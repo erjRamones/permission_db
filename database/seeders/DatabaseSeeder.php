@@ -27,6 +27,8 @@ use App\Models\Name_Type; #Done
 use App\Models\Customer_Group; #Done
 use App\Models\Personality; #Done
 use App\Models\Spouse;
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 class DatabaseSeeder extends Seeder
 {
@@ -45,7 +47,7 @@ class DatabaseSeeder extends Seeder
         //do not include this was removed from database!
         for($i = 0; $i < 100; $i++)
         {
-            echo "Created" + $i;
+            //echo "Created" + $i;
             Spouse::create([
                 'family_name'=>$faker->name(),
                 'first_name'=>$faker->name(),
@@ -96,17 +98,57 @@ class DatabaseSeeder extends Seeder
             'credit_status',
             'personality_status_map',
             'user_account_status',
-            'document_map',
-            'document_permission_map',
+            //'document_map',
+            //'document_permission_map',
             'name_type',
             'customer_group'
         ];
+
+        $permissions = [
+            'Create',
+            'Read',
+            'Update',
+            'Delete'
+        ];
+
+        $documents = [
+            'Loan Application',
+            'Loan Release',
+            'Registration'
+        ];
+
+        $roles = [
+            'Admin',
+            'Employee',
+            'Supervisor'
+        ];
+
+        foreach ($permissions as $permission) {
+            Permission::create([
+                'name' => $permission,
+            ]);
+        }
+
+        foreach ($roles as $role) {
+            Role::create([
+                'name' => $role,
+            ]);
+        }
+
+        foreach ($documents as $document) {
+
+            Document_Map::create([
+                'description' => $document,
+            ]);
+        }
+
 
         while ($this->c > 0) {
             echo "1"; echo $this->f+1;
             $modeltype = $faker->randomElement($modelTypes);
             $description = $faker->sentence(10);
             echo $modeltype;
+
 
             switch ($modeltype) {
                 case 'barangay':
@@ -139,12 +181,12 @@ class DatabaseSeeder extends Seeder
                 case 'user_account_status':
                     User_Account_Status::createEntry($description);
                     break;
-                case 'document_map':
-                    Document_Map::createEntry($description);
-                    break;
-                case 'document_permission_map':
-                    Document_Permission_Map::createEntry($description);
-                    break;
+                // case 'document_map':
+                //     Document_Map::createEntry($test2);
+                //     break;
+                // case 'document_permission_map':
+                //     Document_Permission_Map::createEntry($test);
+                //     break;
                 case 'name_type':
                     Name_Type::createEntry($description);
                     break;
@@ -159,14 +201,25 @@ class DatabaseSeeder extends Seeder
             $this->f++;
         }
 
-        Employee::create([
-            'sss_no' => $faker->randomDigit(),
-            'phic_no' => $faker->randomDigit(),
-            'tin_no' => $faker->randomDigit(),
-            'datetime_hired' => $faker->date(),
-            'datetime_resigned' => $faker->date(),
-            'personality_id' => $faker->numberBetween(1,100),
-        ]);
+        // Employee::create([
+        //     'sss_no' => $faker->randomDigit(),
+        //     'phic_no' => $faker->randomDigit(),
+        //     'tin_no' => $faker->randomDigit(),
+        //     'datetime_hired' => $faker->date(),
+        //     'datetime_resigned' => $faker->date(),
+        //     'personality_id' => $faker->numberBetween(1,100),
+        // ]);
+
+        for ($i = 0; $i < 4; $i++) {
+            Employee::create([
+                'sss_no' => $faker->randomDigit(),
+                'phic_no' => $faker->randomDigit(),
+                'tin_no' => $faker->randomDigit(),
+                'datetime_hired' => $faker->date(),
+                'datetime_resigned' => $faker->date(),
+                'personality_id' => $faker->numberBetween(1, 100),
+            ]);
+        }
 
         User_Account_Status::create([
             'description' => $faker->name(['Active', 'Not Active']),
@@ -180,6 +233,36 @@ class DatabaseSeeder extends Seeder
             'email' => 'Sasas@email.com',
             'password' => Hash::make('password'),
             'employee_id' => 1,
+            'status_id' => 1,
+        ]);
+
+        User_Account::create([
+            'last_name' => 'Eric',
+            'first_name' => 'Eric',
+            'middle_name' => 'Eric',
+            'email' => 'eric@email.com',
+            'password' => Hash::make('password'),
+            'employee_id' => 2,
+            'status_id' => 1,
+        ]);
+
+        User_Account::create([
+            'last_name' => 'Mabby',
+            'first_name' => 'Mabby',
+            'middle_name' => 'Mabby',
+            'email' => 'Mabby@email.com',
+            'password' => Hash::make('password'),
+            'employee_id' => 3,
+            'status_id' => 1,
+        ]);
+
+        User_Account::create([
+            'last_name' => 'Froy',
+            'first_name' => 'Froy',
+            'middle_name' => 'Froy',
+            'email' => 'Froy@email.com',
+            'password' => Hash::make('password'),
+            'employee_id' => 4,
             'status_id' => 1,
         ]);
 

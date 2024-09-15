@@ -9,7 +9,6 @@ use Illuminate\Http\Request;
 class UserController extends Controller
 {
 
-
     private $userService;
     public function __construct(UserServiceInterface $userService)
     {
@@ -18,6 +17,7 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      */
+
     public function index()
     {
         return $this->userService->findUser();
