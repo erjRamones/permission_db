@@ -35,7 +35,6 @@ class RoleController extends Controller
         // ]);
 
         // if($validator->passes()){
-
             // $role = Role::create(['name' =>$request->name]);  want to create role 
             
             $role = Role::where('name', $request->role)->firstOrFail(); //combo box na role
@@ -43,7 +42,7 @@ class RoleController extends Controller
                 foreach($request->permission as $name){
                     $role->givePermissionTo($name);
                 }
-            }
+            }return redirect('user');
             
     }
     

@@ -12,8 +12,9 @@
 <body class="bg-light">
         <nav class="navbar navbar-expand-md bg-white shadow-lg bsb-navbar bsb-navbar-hover bsb-navbar-caret">
             <div class="container">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand">
                     <strong>Roles</strong>
+                    <a id="accountDropdown" role="button" >{{ Auth::user()->first_name }}</a>
                 </a>
             </div>
         </nav>
