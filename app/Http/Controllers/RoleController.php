@@ -19,12 +19,17 @@ class RoleController extends Controller
     public function create()
     {
         $roles = Role::orderBy('name', 'ASC')->get();
-        $permissions = Permission::orderBy('name', 'ASC')->get();
+        $permission = Permission::orderBy('name', 'ASC')->get();
 
+        // $role = Role::findById($id);
         
+        // // Get all permissions
+        // $allPermissions = Permission::all();
+        // $rolePermissions = $role->permissions->pluck('id')->toArray();
+
         return view('assignPermission',[
             'roles'=>$roles ,
-            'permissions'=>$permissions
+            'permission'=>$permission,
         ]);
     }
 
@@ -43,7 +48,6 @@ class RoleController extends Controller
                     $role->givePermissionTo($name);
                 }
             }return redirect('user');
-            
     }
     
 }

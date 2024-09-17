@@ -18,7 +18,7 @@
                 </a>
             </div>
         </nav>
-        <form action="{{ route('roles.store') }}" method="post">
+        <form action="{{ route('roles.store' ) }}" method="post">
         @csrf
             <div class="container">
                 <div class="card border-0 shadow my-5">
@@ -35,9 +35,10 @@
                             </select>
                         </div>
                     <div class="form-check">
-                                @foreach ($permissions as $permission)
+                                @foreach ($permission as $permission)
                                     <div class="form-check mb-2">
-                                        <input type="checkbox" id="permmision-{{$permission->id}}" class="form-check-input"  name="permission[]" value="{{ $permission->name }}">
+                                        <input 
+                                        type="checkbox" id="permmision-{{$permission->id}}" class="form-check-input"  name="permission[]" value="{{ $permission->name }}">
                                         <label class="form-check-label" for="permission-{{ $permission->id }}"> {{ $permission->name }}</label>
                                     </div>
                                 @endforeach

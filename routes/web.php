@@ -16,16 +16,16 @@ Route::group(['middleware' => ['auth','role:Admin']], function(){
     
     Route::get('/roles/create', [RoleController::class, 'create'])->name('roles.create');
     Route::post('/roles', [RoleController::class, 'store'])->name('roles.store');
-    
+
     // Route::get('/user', [UserController2::class, 'index'])->name('user.index');
     // Route::get('/user/{id}/edit', [UserController2::class, 'edit'])->name('assignUser.edit');
     // Route::post('/user/{id}', [UserController2::class, 'update'])->name('assignUser.update');
 
 });
 
-Route::group(['middleware' => ['auth','role:Supervisor']], function(){
+Route::group(['middleware' => ['auth','role:Supervisor|Admin']], function(){
     Route::get('/user', [UserController2::class, 'index'])->name('user.index');
     Route::get('/user/{id}/edit', [UserController2::class, 'edit'])->name('assignUser.edit');
-    Route::post('/user/{id}', [UserController2::class, 'update'])->name('assignUser.update');
+    Route::post('/user/{id}', [UserController2::class, 'update'])->name('assignUser.update')->middleware('permission:Update');
 });
 

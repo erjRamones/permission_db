@@ -30,7 +30,6 @@ class UserController extends Controller
     public function store(UserStoreRequest $request)
     {
         return $this->userService->createUser($request);
-
     }
 
     /**
