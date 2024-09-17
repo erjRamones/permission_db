@@ -13,7 +13,7 @@ class UserController2 extends Controller
  
     public function index()
     {
-        $users = User_Account::orderBy('first_name', 'ASC')->get();
+        $users = User_Account::orderBy('id', 'ASC')->get();
 
         return view('user',[
             'users' =>$users

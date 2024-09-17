@@ -25,7 +25,7 @@ Route::group(['middleware' => ['auth','role:Admin']], function(){
 
 Route::group(['middleware' => ['auth','role:Supervisor|Admin']], function(){
     Route::get('/user', [UserController2::class, 'index'])->name('user.index');
-    Route::get('/user/{id}/edit', [UserController2::class, 'edit'])->name('assignUser.edit');
-    Route::post('/user/{id}', [UserController2::class, 'update'])->name('assignUser.update')->middleware('permission:Update');
+    Route::get('/user/{id}/edit', [UserController2::class, 'edit'])->name('assignUser.edit')->middleware('permission:Update');
+    Route::post('/user/{id}', [UserController2::class, 'update'])->name('assignUser.update');
 });
 
